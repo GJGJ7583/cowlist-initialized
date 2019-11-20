@@ -1,7 +1,7 @@
 import React from "react";
 
 let Cow = function(props) {
-  let currentCow = props.currentCow;
+  let currentCow = props.cow
   return (
     <div>
       <h4>{currentCow.name}</h4>

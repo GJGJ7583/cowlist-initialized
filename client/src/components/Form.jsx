@@ -14,10 +14,10 @@ class Form extends React.Component {
       <div>
         <form>
           Name:
-          <input type="text" />
+          <input type="text" /><br/>
           Description:
-          <input type="text" />
-        </form>
+          <input type="text" /><br/>
+        </form><br/>
         <button type="submit">Add Cow</button>
       </div>
     );

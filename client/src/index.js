@@ -8,7 +8,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cowList: [],
+      cowList: [{
+        name: "Emily",
+        decription: "Fat cow"
+      }],
       currentCow: {}
     };
   }

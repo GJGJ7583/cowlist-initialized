@@ -6,7 +6,7 @@ let List = function(props) {
     <div>
       <ul>
         {cowList.map(cow => {
-          return <li>cow.name</li>;
+          return <li>{cow.name}</li>;
         })}
       </ul>
     </div>
