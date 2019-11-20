@@ -7,6 +7,27 @@ class Form extends React.Component {
       name: "",
       description: ""
     };
+    this.getCowName = this.getCowName.bind(this)
+    this.getCowDesciption= this.getCowDesciption.bind(this)
+    this.callFunc= this.callFunc.bind(this)
+  }
+
+  getCowName(event) {
+    console.log(event.target.value)
+    this.setState({
+      name: event.target.value
+    })
+  }
+
+  getCowDesciption(event) {
+    console.log(event.target.value)
+    this.setState({
+      description: event.target.value
+    })
+  }
+
+  callFunc()  {
+    this.props.func(this.state);
   }
 
   render() {
@@ -14,11 +35,11 @@ class Form extends React.Component {
       <div>
         <form>
           Name:
-          <input type="text" /><br/>
+          <input type="text" onChange={this.getCowName}/><br/>
           Description:
-          <input type="text" /><br/>
+          <input type="text" onChange={this.getCowDesciption}/><br/>
         </form><br/>
-        <button type="submit">Add Cow</button>
+        <button type="submit" onClick={this.callFunc}>Add Cow</button>
       </div>
     );
   }
