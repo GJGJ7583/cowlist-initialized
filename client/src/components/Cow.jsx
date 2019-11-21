@@ -2,7 +2,7 @@ import React from "react";
 
 let Cow = function(props) {
   let currentCow = props.cow
-  console.log(currentCow)
+  //console.log(currentCow)
   return (
     <div>
       <h4>{currentCow.name}</h4>

@@ -13,21 +13,25 @@ class Form extends React.Component {
   }
 
   getCowName(event) {
-    console.log(event.target.value)
+    //console.log(event.target.value)
     this.setState({
       name: event.target.value
     })
   }
 
   getCowDesciption(event) {
-    console.log(event.target.value)
+    //console.log(event.target.value)
     this.setState({
       description: event.target.value
     })
   }
 
+  
   callFunc()  {
-    this.props.func(this.state);
+    this.props.func({
+      name: this.state.name,
+      description: this.state.description
+    });
   }
 
   render() {

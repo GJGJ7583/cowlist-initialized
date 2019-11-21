@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import List from "./components/List";
 import Form from "./components/Form";
 import Cow from "./components/Cow";
+import Axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,12 +16,37 @@ class App extends React.Component {
     this.currentCowChangeState = this.currentCowChangeState.bind(this)
   }
 
-  updateCowList(cow){
-    let newCowList = this.state.cowList.slice();
-    newCowList.push(cow);
-    this.setState({
-      cowList: newCowList
+  componentDidMount(){
+    this.getCowList()
+    .catch(err => console.log(err))
+    .then((listOfCows) => {
+      this.setState({
+        cowList: listOfCows.data
+      })
     })
+    .catch(err => console.log(err))
+  }
+
+  updateCowList(cow){
+    this.addCow(cow)
+    .then(() => {return this.getCowList()})
+    .then((listCows) => {
+      this.setState({
+        cowList: listCows.data
+      })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
+  addCow(cow){
+    //console.log(cow)
+    return Axios.post('/cows', cow).catch(err => console.log(err))
+  } 
+
+  getCowList(){
+    return Axios.get('/cows').catch(err => console.log(err))
   }
 
   currentCowChangeState(cow){
